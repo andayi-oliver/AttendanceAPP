@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.WindowDecorActionBar;
 
 public class Units extends AppCompatActivity {
 
@@ -51,6 +50,9 @@ public class Units extends AppCompatActivity {
 
         autoCompleteTextView3 = findViewById(R.id.auto_complete_text3);
         adapterItems3 = new ArrayAdapter<String>(this,R.layout.list_item,item3);
+
+        autoCompleteTextView.setAdapter(adapterItems);
+        autoCompleteTextView.setAdapter(adapterItems);
 
         autoCompleteTextView.setAdapter(adapterItems);
         autoCompleteTextView1.setAdapter(adapterItems1);
@@ -98,6 +100,8 @@ public class Units extends AppCompatActivity {
             public void onClick(View view) {
                 saveChange();
             }
+        });
+    }
 
             private void saveChange() {
                 if (isValidSelection()) {
@@ -111,13 +115,12 @@ public class Units extends AppCompatActivity {
 
             @SuppressLint("RestrictedApi")
             private boolean isValidSelection() {
-                WindowDecorActionBar.TabImpl autoCompleteTextView4 = null;
-                return !autoCompleteTextView1.getText().toString().isEmpty() &&
-                        !autoCompleteTextView2.getText().toString().isEmpty() &&
+                // Assuming autoCompleteTextView3 is properly initialized elsewhere in your code
+                return autoCompleteTextView3 != null &&
                         !autoCompleteTextView3.getText().toString().isEmpty() &&
-                        !autoCompleteTextView4.getText().toString().isEmpty();
+                        !autoCompleteTextView1.getText().toString().isEmpty() &&
+                        !autoCompleteTextView2.getText().toString().isEmpty();
             }
-        });
+
 
     }
-}
